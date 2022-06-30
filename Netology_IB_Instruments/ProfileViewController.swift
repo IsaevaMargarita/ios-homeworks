@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var viewXib: ProfileView!
+   // @IBOutlet weak var viewXib: ProfileView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

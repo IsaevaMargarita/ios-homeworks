@@ -16,27 +16,25 @@ class ProfileView: UIView {
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var signature: UITextView!
 
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.setupView()
+    }
     
+    private func setupView() {
+        let view = self.loadNib()
+        self.addSubview(view)
+        view.frame = self.bounds
+    }
     
+    private func loadNib() -> UIView {
+        guard let view = Bundle.main.loadNibNamed("ProfileView", owner: self, options: nil)?.first as? UIView else {
+            return UIView()
+        }
+        return view
+    }
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        commonInit()
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        commonInit()
-//    }
-//
-//    private func commonInit() {
-//        Bundle.main.loadNibNamed("ProfileView", owner: self, options: nil)
-//        addSubview(viewProfile)
-//        viewProfile.frame = self.bounds
-//        viewProfile.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//    }
-    
+
 }
 
